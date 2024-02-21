@@ -3,44 +3,642 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
         <div class="head">
             <div class="title">
-                <p>Core</p>
+                <p>PRODUCT</p>
             </div>
         </div>
 
         <ul class="nav-list">
             <li>
-                <a href="#">
-                    <span class="link-name">Core</span>
+                <div class="icon-link" id="core">
+                    <a href="#" >
+                        <span class="link-name">CORE</span>
+                    </a>
                     <i class="fa fa-caret-down"></i>
-                </a>
+                </div>
+                <ul class="sub-menu" id="core-sub">
+                    <li><p>A service can order and deliver food from restaurants to homes</p></li>
+                    <li><p>Order food from restaurants for pick up, don't need to wait. </p></li>
+                </ul>
             </li>
 
             <li>
-                <a href="#">
-                    <span class="link-name">Actual</span>
+                <div class="icon-link" id="actual">
+                    <a href="#">
+                        <span class="link-name">ACTUAL PRODUCT</span>
+                    </a>
                     <i class="fa fa-caret-down"></i>
-                </a>
+                </div>
+                <ul class="sub-menu" id="actual-sub">
+                    <li id="WA">Wolt app</li>
+                    <li id="PAD">Promotions and discounts</li>
+                    <li id="PS">Payment system</li>
+                    <li id="DT">Delivery time</li>
+                    <li id="P">Packaging</li>
+                </ul>
+                
             </li>
 
             <li>
-                <a href="#">
-                    <span class="link-name">Augmented</span>
+                <div class="icon-link" id="aug">
+                    <a href="#">
+                        <span class="link-name">AUGMENTED PRODUCT</span>
+                    </a>
                     <i class="fa fa-caret-down"></i>
-                </a>
+                </div>
+                <ul class="sub-menu" id="aug-sub">
+                    <li id="VC">Variety choices</li>
+                    <li id="SC">Customer support services</li>
+                    <li id="C">Compensation</li>
+                    <li id="DTS">Delivery time slots</li>
+                    <li id="GC">Gift cards</li>
+                    <li id="PR">Personalized recommendation</li>
+                    <li id="MCO">Multi-category order</li>
+                    <li id="OT">Order together</li>
+                </ul>
+                
             </li>
         </ul>
     </div>
-    <div class="home-selection">
-        <div class="home-content">
-            <h1>content</h1>
+    <ul class="content-sub-menu">
+        <div id="actual-content">
+            <li id="WAC">A simple and user-friendliness interface that easily explores details of restaurants. menus with high-quality images help customers easily navigate and options when placing orders, and Tracking real-time orders function: allows customers to track their delivery </li>
+            <li id="PADC">First-order discounts, restaurant-specific discounts,...</li>
+            <li id="PSC">Many payment secure methods when customers place an order </li>
+            <li id="DTC">Depends on the restaurant, order or traffic congestion. Wolt still estimated affordable delivery times for customers around 30-40 minutes.</li>
+            <li id="PC">Use environmentally friendly packaging. To keep the food fresh and at the right temperature, they are placed in a heated bag during delivery. Restaurant rating: helps customers can see how others rate the restaurant you're choosing </li>
         </div>
-    </div>
+    </ul>
+    <ul class="content-sub-menu">
+        <div id="augmented-content">
+            <li id="VCC">Wolt has the topic “Restaurants discovery”, which allows customers to have multiple choices of restaurants, and seek for suitable ones.</li>
+            <li id="SCC">Chat, email, phone to address any issues or inquiries promptly </li>
+            <li id="CC">Discounts or free delivery fees for late delivery Loyalty programs: discounts, Wolt+, or other perks</li>
+            <li id="DTSC">Wolt allows customers to choose a specific time window for delivery within the day. </li>
+            <li id="GCC">Customers can offer gift cards for friends and family to use on the platform. </li>
+            <li id="PRC">Offering personalization foods based on customer requirements </li>
+            <li id="MCOC">Wolt always strikes to help customers can order everything in one platform</li>
+            <li id="OTC">Allow your partners, friends, kids or coworkers to join your order but from their own phone.</li>
+        </div>
+    </ul>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 310px;
+    background-color: white;
+    z-index: 100;
+    transition: all .5s ease;
+}
+
+.sidebar .head{
+    height: 60px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #4cb2e0;
+}
+
+.sidebar .nav-list{
+    height: 100%;
+    padding: 30px 0 150px 0;
+    overflow: auto;
+}
+
+.sidebar .nav-list::-webkit-scrollbar{
+    display: none;
+}
+
+.sidebar .nav-list li{
+    position: relative;
+    list-style: none;
+    transition: all .4s ease;
+}
+
+.sidebar .nav-list li .icon-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.sidebar .nav-list li .icon-link:hover{
+    background-color: #90e0ef;
+}
+
+.sidebar .nav-list li a{
+    text-decoration: none;
+}
+
+.sidebar .nav-list li i {
+    height: 50px;
+    min-width: 78px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sidebar .nav-list li span {
+    height: 50px;
+    min-width: 78px;
+    text-align: center;
+    line-height: 50px;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Lexend';
+}
+
+.sidebar .nav-list li .sub-menu li{
+    color: black;
+    font-size: 15px;
+    padding: 5px 0;
+    font-family: 'Lexend';
+    cursor: pointer;
+}
+
+.sidebar .nav-list li .sub-menu li{
+    font-size: 15px;
+    padding: 5px 0;
+    font-family: 'Lexend';
+    
+}
+
+/* .sidebar .nav-list li .sub-menu li:hover{
+    background-color: #4cb2e0;
+} */
+
+.sidebar .nav-list li i {
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar .head .title{
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+    transition: all .3s ease;
+    transition-delay: .1s;
+    min-width: 78px;
+    align-items: center;
+    padding: 15px;
+    font-family: 'Caprasimo';
+}
+
+.content-sub-menu{
+    margin-left: 310px;
+    padding: 5px;
+    margin-top: 150px;
+}
+
+.content-sub-menu div#augmented-content{
+    padding: 5px;
+    margin-top: -80px;
+}
+
+ul.content-sub-menu li{
+    display: block;
+    padding: 5px 0;
+    display: none;
+    font-family: 'Lexend';
+}
+
+.sub-menu{
+    display: none;
+}
+    </style>
+    <script>
+        let WA = document.getElementById('WA');
+let PAD = document.getElementById('PAD');
+let PS = document.getElementById('PS');
+let DT = document.getElementById('DT');
+let P = document.getElementById('P');
+
+let VC = document.getElementById('VC');
+let SC = document.getElementById('SC');
+let C = document.getElementById('C');
+let DTS = document.getElementById('DTS');
+let GC = document.getElementById('GC');
+let PR = document.getElementById('PR');
+let MCO = document.getElementById('MCO');
+let OT = document.getElementById('OT');
+
+let WAC = document.getElementById('WAC');
+let PADC = document.getElementById('PADC');
+let PSC = document.getElementById('PSC');
+let DTC = document.getElementById('DTC');
+let PC = document.getElementById('PC');
+
+let VCC = document.getElementById('VCC');
+let SCC = document.getElementById('SCC');
+let CC = document.getElementById('CC');
+let DTSC = document.getElementById('DTSC');
+let GCC = document.getElementById('GCC');
+let PRC = document.getElementById('PRC');
+let MCOC = document.getElementById('MCOC');
+let OTC = document.getElementById('OTC');
+
+let Actual = document.getElementById('actual-content');
+let Augmented = document.getElementById('augmented-content');
+
+
+let core = document.getElementById('core');
+let actual = document.getElementById('actual');
+let augmented = document.getElementById('aug');
+let coresub = document.getElementById('core-sub');
+let actualsub = document.getElementById('actual-sub');
+let augmentedsub = document.getElementById('aug-sub');
+
+core.onclick = function() {
+    coresub.style.display = 'block';
+    actualsub.style.display = 'none';
+    augmentedsub.style.display = 'none';
+
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+}
+
+actual.onclick = function() {
+    actualsub.style.display = 'block';
+    coresub.style.display = 'none';
+    augmentedsub.style.display = 'none';
+
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+}
+
+augmented.onclick = function() {
+    augmentedsub.style.display = 'block';
+    coresub.style.display = 'none';
+    actualsub.style.display = 'none';
+
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+}
+
+WA.onclick = function() {
+    WA.style.backgroundColor = '#90e0ef';
+    PAD.style.backgroundColor = 'white';
+    PS.style.backgroundColor = 'white';
+    DT.style.backgroundColor = 'white';
+    P.style.backgroundColor = 'white';
+
+    WAC.style.display = 'block';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+    
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+}
+
+PAD.onclick = function() {
+    PAD.style.backgroundColor = '#90e0ef';
+    WA.style.backgroundColor = 'white';
+    PS.style.backgroundColor = 'white';
+    DT.style.backgroundColor = 'white';
+    P.style.backgroundColor = 'white';
+
+    WAC.style.display = 'none';
+    PADC.style.display = 'block';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+    
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+}
+
+PS.onclick = function() {
+    PS.style.backgroundColor = '#90e0ef';
+    PAD.style.backgroundColor = 'white';
+    WA.style.backgroundColor = 'white';
+    DT.style.backgroundColor = 'white';
+    P.style.backgroundColor = 'white';
+
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'block';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+    
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+}
+
+DT.onclick = function() {
+    DT.style.backgroundColor = '#90e0ef';
+    PAD.style.backgroundColor = 'white';
+    PS.style.backgroundColor = 'white';
+    WA.style.backgroundColor = 'white';
+    P.style.backgroundColor = 'white';
+
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'block';
+    PC.style.display = 'none';
+    
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+}
+
+P.onclick = function() {
+    P.style.backgroundColor = '#90e0ef';
+    PAD.style.backgroundColor = 'white';
+    PS.style.backgroundColor = 'white';
+    DT.style.backgroundColor = 'white';
+    WA.style.backgroundColor = 'white';
+
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'block';
+    
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+}
+
+VC.onclick = function() {
+    VC.style.backgroundColor = '#90e0ef';
+    SC.style.backgroundColor = 'white';
+    C.style.backgroundColor = 'white';
+    DTS.style.backgroundColor = 'white';
+    GC.style.backgroundColor = 'white';
+    PR.style.backgroundColor = 'white';
+    MCO.style.backgroundColor = 'white';
+    OT.style.backgroundColor = 'white';
+
+    VCC.style.display = 'block';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+    
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+
+}
+
+SC.onclick = function() {
+    SC.style.backgroundColor = '#90e0ef';
+    VC.style.backgroundColor = 'white';
+    C.style.backgroundColor = 'white';
+    DTS.style.backgroundColor = 'white';
+    GC.style.backgroundColor = 'white';
+    PR.style.backgroundColor = 'white';
+    MCO.style.backgroundColor = 'white';
+    OT.style.backgroundColor = 'white';
+
+    VCC.style.display = 'none';
+    SCC.style.display = 'block';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+    
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+    
+}
+
+C.onclick = function() {
+    C.style.backgroundColor = '#90e0ef';
+    SC.style.backgroundColor = 'white';
+    VC.style.backgroundColor = 'white';
+    DTS.style.backgroundColor = 'white';
+    GC.style.backgroundColor = 'white';
+    PR.style.backgroundColor = 'white';
+    MCO.style.backgroundColor = 'white';
+    OT.style.backgroundColor = 'white';
+
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'block';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+    
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+}
+
+DTS.onclick = function() {
+    DTS.style.backgroundColor = '#90e0ef';
+    SC.style.backgroundColor = 'white';
+    C.style.backgroundColor = 'white';
+    VC.style.backgroundColor = 'white';
+    GC.style.backgroundColor = 'white';
+    PR.style.backgroundColor = 'white';
+    MCO.style.backgroundColor = 'white';
+    OT.style.backgroundColor = 'white';
+
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'block';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+    
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+}
+
+GC.onclick = function() {
+    GC.style.backgroundColor = '#90e0ef';
+    SC.style.backgroundColor = 'white';
+    C.style.backgroundColor = 'white';
+    DTS.style.backgroundColor = 'white';
+    VC.style.backgroundColor = 'white';
+    PR.style.backgroundColor = 'white';
+    MCO.style.backgroundColor = 'white';
+    OT.style.backgroundColor = 'white';
+
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'block';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+    
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+}
+
+PR.onclick = function() {
+    PR.style.backgroundColor = '#90e0ef';
+    SC.style.backgroundColor = 'white';
+    C.style.backgroundColor = 'white';
+    DTS.style.backgroundColor = 'white';
+    GC.style.backgroundColor = 'white';
+    VC.style.backgroundColor = 'white';
+    MCO.style.backgroundColor = 'white';
+    OT.style.backgroundColor = 'white';
+
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'block';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'none';
+    
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+}
+
+MCO.onclick = function() {
+    MCO.style.backgroundColor = '#90e0ef';
+    SC.style.backgroundColor = 'white';
+    C.style.backgroundColor = 'white';
+    DTS.style.backgroundColor = 'white';
+    GC.style.backgroundColor = 'white';
+    PR.style.backgroundColor = 'white';
+    VC.style.backgroundColor = 'white';
+    OT.style.backgroundColor = 'white';
+
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'block';
+    OTC.style.display = 'none';
+    
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+}
+
+OT.onclick = function() {
+    OT.style.backgroundColor = '#90e0ef';
+    SC.style.backgroundColor = 'white';
+    C.style.backgroundColor = 'white';
+    DTS.style.backgroundColor = 'white';
+    GC.style.backgroundColor = 'white';
+    PR.style.backgroundColor = 'white';
+    MCO.style.backgroundColor = 'white';
+    VC.style.backgroundColor = 'white';
+
+    VCC.style.display = 'none';
+    SCC.style.display = 'none';
+    CC.style.display = 'none';
+    DTSC.style.display = 'none';
+    GCC.style.display = 'none';
+    PRC.style.display = 'none';
+    MCOC.style.display = 'none';
+    OTC.style.display = 'block';
+    
+    WAC.style.display = 'none';
+    PADC.style.display = 'none';
+    PSC.style.display = 'none';
+    DTC.style.display = 'none';
+    PC.style.display = 'none';
+}
+
+
+    </script>
 </body>
 </html>
