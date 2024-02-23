@@ -9,16 +9,16 @@
 </head>
 <body>
     <div class="sidebar">
-        <div class="head">
+        <!-- <div class="head">
             <div class="title">
                 <p>PRODUCT</p>
             </div>
-        </div>
+        </div> -->
 
         <ul class="nav-list">
             <li>
                 <div class="icon-link" id="core">
-                    <a href="#" >
+                    <a>
                         <span class="link-name">CORE</span>
                     </a>
                     <i class="fa fa-caret-down"></i>
@@ -31,7 +31,7 @@
 
             <li>
                 <div class="icon-link" id="actual">
-                    <a href="#">
+                    <a>
                         <span class="link-name">ACTUAL PRODUCT</span>
                     </a>
                     <i class="fa fa-caret-down"></i>
@@ -48,7 +48,7 @@
 
             <li>
                 <div class="icon-link" id="aug">
-                    <a href="#">
+                    <a>
                         <span class="link-name">AUGMENTED PRODUCT</span>
                     </a>
                     <i class="fa fa-caret-down"></i>
@@ -63,7 +63,18 @@
                     <li id="MCO">Multi-category order</li>
                     <li id="OT">Order together</li>
                 </ul>
-                
+            </li>
+
+            <li>
+                <div class="icon-link" id="product">
+                    <a>
+                        <span class="link-name">PRODUCT LIFE CYCLE</span>
+                    </a>
+                    <i class="fa fa-caret-down"></i>
+                </div>
+                <ul class="sub-menu" id="product-sub">
+                    <li>Wolt's food delivery service currently straddles the line between the Growth and Maturity stages. </li>
+                    <li>Wolt shows continued revenue growth with a 144% year-over-year increase in gross merchandise value (GMV) for the first half of 2023 and it entered several new markets in 2023, including Israel, Greece, and Cyprus,... But Wolt also faces increasing competition and needs to adapt its strategies to ensure long-term sustainability and success.</li>
             </li>
         </ul>
     </div>
@@ -183,6 +194,18 @@
 /* .sidebar .nav-list li .sub-menu li:hover{
     background-color: #4cb2e0;
 } */
+.sidebar .nav-list li .sub-menu li {
+    font-size: 15px;
+    padding: 5px 0;
+    font-family: 'Lexend';
+}
+
+.sidebar .nav-list li .sub-menu li:hover,
+.sidebar .nav-list li .sub-menu li.active {
+    background-color: #4cb2e0;
+}
+
+
 
 .sidebar .nav-list li i {
     text-decoration: none;
@@ -224,420 +247,52 @@ ul.content-sub-menu li{
 }
     </style>
     <script>
-        let WA = document.getElementById('WA');
-let PAD = document.getElementById('PAD');
-let PS = document.getElementById('PS');
-let DT = document.getElementById('DT');
-let P = document.getElementById('P');
+        // Arrays of elements and their corresponding content containers
+const elements = ['WA', 'PAD', 'PS', 'DT', 'P', 'VC', 'SC', 'C', 'DTS', 'GC', 'PR', 'MCO', 'OT'];
+const contentContainers = ['WAC', 'PADC', 'PSC', 'DTC', 'PC', 'VCC', 'SCC', 'CC', 'DTSC', 'GCC', 'PRC', 'MCOC', 'OTC'];
 
-let VC = document.getElementById('VC');
-let SC = document.getElementById('SC');
-let C = document.getElementById('C');
-let DTS = document.getElementById('DTS');
-let GC = document.getElementById('GC');
-let PR = document.getElementById('PR');
-let MCO = document.getElementById('MCO');
-let OT = document.getElementById('OT');
+// Add click event listeners to elements
+elements.forEach((elementId, index) => {
+    const element = document.getElementById(elementId);
+    const contentContainer = document.getElementById(contentContainers[index]);
 
-let WAC = document.getElementById('WAC');
-let PADC = document.getElementById('PADC');
-let PSC = document.getElementById('PSC');
-let DTC = document.getElementById('DTC');
-let PC = document.getElementById('PC');
+    element.onclick = function() {
+        // Set background color of clicked element
+        elements.forEach(id => {
+            const el = document.getElementById(id);
+            el.classList.remove('active'); // Remove active class from all elements
+        });
+        element.classList.add('active'); // Add active class to clicked element
 
-let VCC = document.getElementById('VCC');
-let SCC = document.getElementById('SCC');
-let CC = document.getElementById('CC');
-let DTSC = document.getElementById('DTSC');
-let GCC = document.getElementById('GCC');
-let PRC = document.getElementById('PRC');
-let MCOC = document.getElementById('MCOC');
-let OTC = document.getElementById('OTC');
-
-let Actual = document.getElementById('actual-content');
-let Augmented = document.getElementById('augmented-content');
+        // Show/hide corresponding content container
+        contentContainers.forEach(id => {
+            const container = document.getElementById(id);
+            container.style.display = id === contentContainers[index] ? 'block' : 'none';
+        });
+    };
+});
 
 
-let core = document.getElementById('core');
-let actual = document.getElementById('actual');
-let augmented = document.getElementById('aug');
-let coresub = document.getElementById('core-sub');
-let actualsub = document.getElementById('actual-sub');
-let augmentedsub = document.getElementById('aug-sub');
+// Additional logic for the core, actual, and augmented links
+const categoryLinks = ['core', 'actual', 'aug', 'product'];
+const categoryContainers = ['core-sub', 'actual-sub', 'aug-sub', 'product-sub'];
 
-core.onclick = function() {
-    coresub.style.display = 'block';
-    actualsub.style.display = 'none';
-    augmentedsub.style.display = 'none';
+categoryLinks.forEach((linkId, index) => {
+    const link = document.getElementById(linkId);
+    const container = document.getElementById(categoryContainers[index]);
 
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
+    link.onclick = function() {
+        categoryContainers.forEach(id => {
+            const subContainer = document.getElementById(id);
+            subContainer.style.display = id === categoryContainers[index] ? 'block' : 'none';
+        });
 
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-}
-
-actual.onclick = function() {
-    actualsub.style.display = 'block';
-    coresub.style.display = 'none';
-    augmentedsub.style.display = 'none';
-
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-}
-
-augmented.onclick = function() {
-    augmentedsub.style.display = 'block';
-    coresub.style.display = 'none';
-    actualsub.style.display = 'none';
-
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-}
-
-WA.onclick = function() {
-    WA.style.backgroundColor = '#90e0ef';
-    PAD.style.backgroundColor = 'white';
-    PS.style.backgroundColor = 'white';
-    DT.style.backgroundColor = 'white';
-    P.style.backgroundColor = 'white';
-
-    WAC.style.display = 'block';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-    
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-}
-
-PAD.onclick = function() {
-    PAD.style.backgroundColor = '#90e0ef';
-    WA.style.backgroundColor = 'white';
-    PS.style.backgroundColor = 'white';
-    DT.style.backgroundColor = 'white';
-    P.style.backgroundColor = 'white';
-
-    WAC.style.display = 'none';
-    PADC.style.display = 'block';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-    
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-}
-
-PS.onclick = function() {
-    PS.style.backgroundColor = '#90e0ef';
-    PAD.style.backgroundColor = 'white';
-    WA.style.backgroundColor = 'white';
-    DT.style.backgroundColor = 'white';
-    P.style.backgroundColor = 'white';
-
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'block';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-    
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-}
-
-DT.onclick = function() {
-    DT.style.backgroundColor = '#90e0ef';
-    PAD.style.backgroundColor = 'white';
-    PS.style.backgroundColor = 'white';
-    WA.style.backgroundColor = 'white';
-    P.style.backgroundColor = 'white';
-
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'block';
-    PC.style.display = 'none';
-    
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-}
-
-P.onclick = function() {
-    P.style.backgroundColor = '#90e0ef';
-    PAD.style.backgroundColor = 'white';
-    PS.style.backgroundColor = 'white';
-    DT.style.backgroundColor = 'white';
-    WA.style.backgroundColor = 'white';
-
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'block';
-    
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-}
-
-VC.onclick = function() {
-    VC.style.backgroundColor = '#90e0ef';
-    SC.style.backgroundColor = 'white';
-    C.style.backgroundColor = 'white';
-    DTS.style.backgroundColor = 'white';
-    GC.style.backgroundColor = 'white';
-    PR.style.backgroundColor = 'white';
-    MCO.style.backgroundColor = 'white';
-    OT.style.backgroundColor = 'white';
-
-    VCC.style.display = 'block';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-    
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-
-}
-
-SC.onclick = function() {
-    SC.style.backgroundColor = '#90e0ef';
-    VC.style.backgroundColor = 'white';
-    C.style.backgroundColor = 'white';
-    DTS.style.backgroundColor = 'white';
-    GC.style.backgroundColor = 'white';
-    PR.style.backgroundColor = 'white';
-    MCO.style.backgroundColor = 'white';
-    OT.style.backgroundColor = 'white';
-
-    VCC.style.display = 'none';
-    SCC.style.display = 'block';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-    
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-    
-}
-
-C.onclick = function() {
-    C.style.backgroundColor = '#90e0ef';
-    SC.style.backgroundColor = 'white';
-    VC.style.backgroundColor = 'white';
-    DTS.style.backgroundColor = 'white';
-    GC.style.backgroundColor = 'white';
-    PR.style.backgroundColor = 'white';
-    MCO.style.backgroundColor = 'white';
-    OT.style.backgroundColor = 'white';
-
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'block';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-    
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-}
-
-DTS.onclick = function() {
-    DTS.style.backgroundColor = '#90e0ef';
-    SC.style.backgroundColor = 'white';
-    C.style.backgroundColor = 'white';
-    VC.style.backgroundColor = 'white';
-    GC.style.backgroundColor = 'white';
-    PR.style.backgroundColor = 'white';
-    MCO.style.backgroundColor = 'white';
-    OT.style.backgroundColor = 'white';
-
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'block';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-    
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-}
-
-GC.onclick = function() {
-    GC.style.backgroundColor = '#90e0ef';
-    SC.style.backgroundColor = 'white';
-    C.style.backgroundColor = 'white';
-    DTS.style.backgroundColor = 'white';
-    VC.style.backgroundColor = 'white';
-    PR.style.backgroundColor = 'white';
-    MCO.style.backgroundColor = 'white';
-    OT.style.backgroundColor = 'white';
-
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'block';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-    
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-}
-
-PR.onclick = function() {
-    PR.style.backgroundColor = '#90e0ef';
-    SC.style.backgroundColor = 'white';
-    C.style.backgroundColor = 'white';
-    DTS.style.backgroundColor = 'white';
-    GC.style.backgroundColor = 'white';
-    VC.style.backgroundColor = 'white';
-    MCO.style.backgroundColor = 'white';
-    OT.style.backgroundColor = 'white';
-
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'block';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'none';
-    
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-}
-
-MCO.onclick = function() {
-    MCO.style.backgroundColor = '#90e0ef';
-    SC.style.backgroundColor = 'white';
-    C.style.backgroundColor = 'white';
-    DTS.style.backgroundColor = 'white';
-    GC.style.backgroundColor = 'white';
-    PR.style.backgroundColor = 'white';
-    VC.style.backgroundColor = 'white';
-    OT.style.backgroundColor = 'white';
-
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'block';
-    OTC.style.display = 'none';
-    
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-}
-
-OT.onclick = function() {
-    OT.style.backgroundColor = '#90e0ef';
-    SC.style.backgroundColor = 'white';
-    C.style.backgroundColor = 'white';
-    DTS.style.backgroundColor = 'white';
-    GC.style.backgroundColor = 'white';
-    PR.style.backgroundColor = 'white';
-    MCO.style.backgroundColor = 'white';
-    VC.style.backgroundColor = 'white';
-
-    VCC.style.display = 'none';
-    SCC.style.display = 'none';
-    CC.style.display = 'none';
-    DTSC.style.display = 'none';
-    GCC.style.display = 'none';
-    PRC.style.display = 'none';
-    MCOC.style.display = 'none';
-    OTC.style.display = 'block';
-    
-    WAC.style.display = 'none';
-    PADC.style.display = 'none';
-    PSC.style.display = 'none';
-    DTC.style.display = 'none';
-    PC.style.display = 'none';
-}
-
+        contentContainers.forEach(id => {
+            const contentContainer = document.getElementById(id);
+            contentContainer.style.display = 'none';
+        });
+    };
+});
 
     </script>
 </body>
